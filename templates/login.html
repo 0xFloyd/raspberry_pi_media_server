@@ -1,0 +1,50 @@
+{% include 'head.html' %} {% block content %}
+<body class="application-body background-color">
+  <div class="container login-page-container">
+    <div class="row mx-auto">
+      <div class="col-12 mx-auto">
+        <h1 class="login-header text-center mb-4 green-text">Floyd Login</h1>
+        <form
+          action="login"
+          method="POST"
+          class="text-center justify-content-center"
+        >
+          <div class="form-group text-center justify-content-center">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              name="email"
+              id="email"
+              placeholder="email"
+            />
+          </div>
+          <div class="form-group text-center justify-content-center">
+            <input
+              class="form-control form-control-lg"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+            />
+          </div>
+          <div class="form-group text-center justify-content-center">
+            <input
+              class="btn input-button-green"
+              value="Login"
+              type="submit"
+              name="submit"
+            />
+          </div>
+        </form>
+        <div class="row mx-auto text-center">
+          <div class="col-8 mx-auto text-center error-message-text">
+            {% with messages = get_flashed_messages() %} {% if messages %} {%
+            for message in messages %} {{message}} {% endfor %} {% endif %} {%
+            endwith %} {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'footer.html' %}
+</body>

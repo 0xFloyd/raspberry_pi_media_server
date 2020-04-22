@@ -1,0 +1,45 @@
+{% include 'head.html' %}
+<title>Home</title>
+{% include 'header.html' %}
+  <body class="application-body">
+    <div class="container-fluid">
+      <div class="row mx-auto">
+        <div class="col-12">
+          <h1 class="text-center green-text">My Media</h1>
+        </div> 
+      </div>  
+      <div class="row mx-auto justify-content-center">
+        <div class="col-12 text-center">
+          <ul>
+            {% for file in files %}
+              {% if ( (".jpg" in file) or (".png" in file) or (".jpeg" in file) or (".JPG" in file) or (".PNG" in file) or (".JPEG" in file) ) %}
+                <figure class="figure figure-container">
+                  <a href="{{ file }}"><img class="figure-container-img" src="{{ file }}" /></a>
+                  <figcaption class="figure-caption figure-caption-text">  {% if ( file|length > 15 ) %}
+                    {{ file[-14:] }}
+                  {% else %}  
+                    {{ file }}
+                  {% endif %} </figcaption>
+                </figure>
+              {% elif ( (".mov" in file) or (".mp4" in file) or (".MP4" in file) or (".MOV" in file) ) %}
+                <figure class="figure figure-container">
+                  <a href="{{ file }}"><video class="figure-container-img" src="{{ file }}"></video></a>
+                  <figcaption class="figure-caption figure-caption-text">
+                    {% if ( file|length > 15 ) %}
+                      {{ file[-14:] }}
+                    {% else %}  
+                      {{ file }}
+                    {% endif %}
+                  </figcaption>
+                </figure>
+              {% else %}  
+                <p>{{ file }}</p>       
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>

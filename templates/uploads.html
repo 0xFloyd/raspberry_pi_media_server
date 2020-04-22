@@ -1,0 +1,36 @@
+{% include 'head.html' %}
+<title>Upload new File</title>
+{% include 'header.html' %}
+<body class="application-body">
+  <div class="container login-page-container">
+    <div class="row mx-auto justify-content-center text-center">
+      <div class="col-8 mx-auto text-center"> 
+        <h1 class="text-center mb-4 green-text">Add Media</h1>
+       
+        <form method=post enctype=multipart/form-data class="text-center justify-content-center">
+          <div class="form-group text-center justify-content-center">
+            <input type="file" class="text-center justify-content-center" name="files[]" multiple="true" id="exampleFormControlFile1">
+          </div>
+          <div class="form-group text-center justify-content-center">
+            <input class="btn mt-4 input-button-green" type=submit value=Upload>
+          </div>
+        </form>
+        <div class="row mx-auto mb-0 mt-0 justify-content-center text-center">
+          <p class="italic-text">accepts .jpg, .jpeg, .png, .mov, .mp4</p>
+        </div>
+        <div>
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p class="error-message-text">{{message}}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block body %}{% endblock %}
+        </div>
+      </div> 
+    </div>  
+  </div>
+    {% include 'footer.html' %}
+</body>
+ 
