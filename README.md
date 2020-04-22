@@ -19,5 +19,8 @@ To run locally on network:
 `flask run -h <ip Address>`
 
 To run locally with Docker:
-`docker build -t raspberry_pi_server .`
-`docker run -d -p 5000:5000 raspberry_pi_server`
+
+```
+docker build -t raspberry_pi_server .
+docker run -d -p 5000:5000 raspberry_pi_server
+```
