@@ -13,12 +13,16 @@ SECRET=<app secret key>
 ```
 
 Run locally:
-`flask run`
+
+```
+pip install -r requirements.txt
+flask run
+```
 
 To run locally on network:
 `flask run -h <ip Address>`
 
-To run locally with Docker:
+To run locally with Docker (with Docker running):
 
 ```
 docker build -t raspberry_pi_server .
